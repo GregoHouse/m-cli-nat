@@ -1,5 +1,7 @@
 import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from "react-native";
-import logo from "../assets/images/icono_logo_matching_-_oscuro.png"
+import logo from "../assets/images/icono_logo_matching_-_oscuro.jpg"
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const styles = StyleSheet.create({
     text: {
@@ -11,6 +13,8 @@ const styles = StyleSheet.create({
 })
 
 export function Login() {
+    const {isAuth} = useContext(AuthContext)
+    console.log(isAuth)
     return (
         <>
             <StatusBar hidden={true} />
