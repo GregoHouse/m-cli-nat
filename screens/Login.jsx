@@ -28,13 +28,13 @@ export function Login() {
                     />
                 </View>
                 {/* <Ionicons name="golf-outline" size={30} /> */}
-                <View className="absolute left-28 top-[180px]">
+                <View className="absolute left-28 top-[165px]">
                     <Text className="text-white_text text-xl" style={styles.text}>
                         INICIO DE SESION
                     </Text>
                 </View>
-                <View className=" w-[370px] h-[373] absolute top-64 left-[11px]">
-                    <View className="flex flex-col items-start pt-2 pb-2 gap-6">
+                <View className=" w-[370px] h-[373] absolute top-60 left-[11px]">
+                    <View className="flex flex-col items-start gap-3">
                         <View className="space-y-1">
                             <Text style={styles.text} className="text-white_text">
                                 Email
@@ -45,7 +45,7 @@ export function Login() {
                                 />
                             </View>
                         </View>
-                        <View className="space-y-1">
+                        <View className="space-y-1 mb-2">
                             <Text style={styles.text} className="text-white_text">
                                 Contraseña
                             </Text>
@@ -55,14 +55,14 @@ export function Login() {
                                 />
                             </View>
                         </View>
-                        <View className="w-[370px] h-[50px]">
+                        <View className="w-[370px] h-[50px] mb-2">
                             <TouchableOpacity className=" bg-button_sesion_color w-full h-full rounded-lg flex justify-center items-center flex-row">
                                 <Text className="text-white_text text-lg" style={styles.text}>
                                     INICIAR SESION
                                 </Text>
                             </TouchableOpacity>
                         </View>
-                        <View className="w-[370px] h-[98px]">
+                        <View className="w-[370px] h-[98px] space-y-2">
                             <View className="flex flex-row space-x-1">
                                 <Text className="text-white_text" style={styles.parrafo}>
                                     ¿No tienes cuenta?

@@ -18,6 +18,9 @@ import store from './redux/store';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthProvider } from './context/AuthContext';
 import { UserProvider } from './context/UserContext';
+import { Start } from './screens/Start';
+import { Register } from './screens/Register';
+import { ResetPasswordOne } from './screens/ResetPasswordOne';
 
 
 export default function App() {
@@ -29,7 +32,10 @@ export default function App() {
           <AuthProvider>
             <UserProvider>
               <NavigationContainer>
-                <Login />
+                {/* <Login /> */}
+                {/* <Start/> */}
+                {/* <Register/> */}
+                <ResetPasswordOne/>
               </NavigationContainer>
             </UserProvider>
           </AuthProvider>
