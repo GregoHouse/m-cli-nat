@@ -2,6 +2,7 @@ import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Image }
 import logo from "../assets/images/icono_logo_matching_-_oscuro.jpg"
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import {useNavigation} from "@react-navigation/native"
 
 const styles = StyleSheet.create({
     text: {
@@ -13,13 +14,19 @@ const styles = StyleSheet.create({
 })
 
 export function Login() {
+    const navigation = useNavigation();
     const {isAuth} = useContext(AuthContext)
     console.log(isAuth)
+
+    function goToScreenRegister(){
+        navigation.navigate("Register")
+    }
+
     return (
         <>
             <StatusBar hidden={true} />
             <View className="h-full bg-background_login">
-                <View className="absolute top-16 left-[50px]">
+                <View className="absolute top-12 left-[50px]">
                     <Image
                         source={
                             logo
@@ -28,7 +35,7 @@ export function Login() {
                     />
                 </View>
                 {/* <Ionicons name="golf-outline" size={30} /> */}
-                <View className="absolute left-28 top-[165px]">
+                <View className="absolute left-28 top-[145px]">
                     <Text className="text-white_text text-xl" style={styles.text}>
                         INICIO DE SESION
                     </Text>
@@ -55,7 +62,7 @@ export function Login() {
                                 />
                             </View>
                         </View>
-                        <View className="w-[370px] h-[50px] mb-2">
+                        <View className="w-[370px] h-[45px] mb-2">
                             <TouchableOpacity className=" bg-button_sesion_color w-full h-full rounded-lg flex justify-center items-center flex-row">
                                 <Text className="text-white_text text-lg" style={styles.text}>
                                     INICIAR SESION
@@ -67,7 +74,7 @@ export function Login() {
                                 <Text className="text-white_text" style={styles.parrafo}>
                                     ¿No tienes cuenta?
                                 </Text>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={goToScreenRegister}>
                                     <Text className="text-button_sesion_color font-bold" style={styles.text}>
                                         Registrate
                                     </Text>
@@ -80,6 +87,9 @@ export function Login() {
                                     </Text>
                                 </TouchableOpacity>
                             </View>
+                        </View>
+                        <View>
+                            
                         </View>
                     </View>
                 </View>

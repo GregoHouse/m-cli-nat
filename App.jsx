@@ -18,30 +18,21 @@ import store from './redux/store';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthProvider } from './context/AuthContext';
 import { UserProvider } from './context/UserContext';
-import { Start } from './screens/Start';
-import { Register } from './screens/Register';
-import { ResetPasswordOne } from './screens/ResetPasswordOne';
+import { AuthNavigator } from './stackNavigation/AuthNavigator';
 
 
 export default function App() {
 
   return (
-    <SafeAreaView >
-      <View>
-        <Provider store={store}>
-          <AuthProvider>
-            <UserProvider>
-              <NavigationContainer>
-                {/* <Login /> */}
-                {/* <Start/> */}
-                {/* <Register/> */}
-                <ResetPasswordOne/>
-              </NavigationContainer>
-            </UserProvider>
-          </AuthProvider>
-        </Provider>
-      </View>
-    </SafeAreaView>
+    <Provider store={store}>
+      <AuthProvider>
+        <UserProvider>
+          <NavigationContainer>
+            <AuthNavigator />
+          </NavigationContainer>
+        </UserProvider>
+      </AuthProvider>
+    </Provider>
   );
 }
 
