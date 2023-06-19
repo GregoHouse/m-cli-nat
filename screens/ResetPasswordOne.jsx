@@ -1,6 +1,9 @@
 import { View, Text, StatusBar, StyleSheet, TextInput, TouchableOpacity, Image } from "react-native"
 import logo from "../assets/images/icono_logo_matching_-_oscuro.jpg";
-
+import {useNavigation} from "@react-navigation/native"
+import { useForm } from "react-hook-form";
+import { ButtonCustom } from "../components/ButtonCustom";
+import { InputCustom } from "../components/InputCustom";
 
 const styles = StyleSheet.create({
     text: {
@@ -12,6 +15,14 @@ const styles = StyleSheet.create({
 })
 
 export function ResetPasswordOne() {
+    const { control, handleSubmit, setValue } = useForm()
+    const navigation = useNavigation();
+    function goToScreenLogin(){
+        navigation.navigate("Login")
+    }
+    function goToScreenResetPwTeo(){
+        navigation.navigate("ResetPasswordTwo")
+    }
     return (
         <>
             <StatusBar hidden={true} />
@@ -40,18 +51,18 @@ export function ResetPasswordOne() {
                             <Text style={styles.text} className="text-white_text">
                                 Email
                             </Text>
-                            <View className="bg-white w-[370px] h-[55px] rounded-lg items-stretch border-color_border">
-                                <TextInput
-                                    placeholder="Email"
-                                />
-                            </View>
+                            <InputCustom
+                                placeholder={"E-mail"}
+                                control={control}
+                                name="useremail" 
+                            />
                         </View>
                         <View className="w-[370px] h-[45px] mb-2">
-                            <TouchableOpacity className="bg-button_sesion_color w-full h-full rounded-lg flex justify-center items-center flex-row">
-                                <Text className="text-white_text text-lg" style={styles.text}>
-                                    ENVIAR CODIGO
-                                </Text>
-                            </TouchableOpacity>
+                            <ButtonCustom
+                                text="ENVIAR CODIGO"
+                                style={styles.text}
+                                onPress={goToScreenResetPwTeo}
+                            />
                         </View>
                         <View className="flex flex-row space-x-2">
                             <View>
@@ -60,7 +71,7 @@ export function ResetPasswordOne() {
                                 </Text>
                             </View>
                             <View>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={goToScreenLogin}>
                                     <Text className="font-bold text-button_sesion_color" style={styles.parrafo} >
                                         Inicia sesion
                                     </Text>

@@ -5,6 +5,8 @@ import { Register } from "../screens/Register";
 import { ResetPasswordOne } from "../screens/ResetPasswordOne";
 import { ResetPasswordTwo } from "../screens/ResetPasswordTwo";
 import { Start } from "../screens/Start";
+import { QuestionOne } from "../screens/QuestionOne";
+import { QuestionTwo } from "../screens/QuestionTwo";
 
 
 const Stack = createStackNavigator()
@@ -17,6 +19,8 @@ export function AuthNavigator(){
             <Stack.Screen options={{headerShown: false}} name="Register" component={Register}/>
             <Stack.Screen options={{headerShown: false}} name="ResetPasswordOne" component={ResetPasswordOne}/>
             <Stack.Screen options={{headerShown: false}} name="ResetPasswordTwo" component={ResetPasswordTwo}/>
+            <Stack.Screen options={{headerShown: false}} name="QuestionOne" component={QuestionOne}/>
+            <Stack.Screen options={{headerShown: false}} name="QuestionTwo" component={QuestionTwo}/>
         </Stack.Navigator>
     )
 }
