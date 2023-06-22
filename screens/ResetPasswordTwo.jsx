@@ -1,6 +1,9 @@
 import { View, Text, StatusBar, StyleSheet, TextInput, TouchableOpacity, Image } from "react-native"
 import logo from "../assets/images/icono_logo_matching_-_oscuro.jpg";
-
+import { useForm } from "react-hook-form";
+import { ButtonCustom } from "../components/ButtonCustom";
+import { InputCustom } from "../components/InputCustom";
+import { useNavigation } from "@react-navigation/native";
 
 const styles = StyleSheet.create({
     text: {
@@ -12,6 +15,11 @@ const styles = StyleSheet.create({
 })
 
 export function ResetPasswordTwo() {
+    const { control, handleSubmit, setValue } = useForm()
+    const navigation = useNavigation();
+    function goToScreenLogin(){
+        navigation.navigate("Login")
+    }
     return (
         <>
             <StatusBar hidden={true} />
@@ -37,41 +45,42 @@ export function ResetPasswordTwo() {
                 <View className=" w-[370px] h-[393] absolute top-[260] left-[11px]">
                     <View className="flex flex-col items-start gap-2">
                         <View className="space-y-1">
-                            <Text style={styles.text} className="text-white_text">
+                            <Text style={styles.text} className="text-white_text mb-1">
                                 Codigo de verificacion
                             </Text>
-                            <View className="bg-white w-[370px] h-[55px] rounded-lg items-stretch border-color_border">
-                                <TextInput
-                                    placeholder="Codigo de verificacion"
-                                />
-                            </View>
+                            <InputCustom
+                                placeholder="Codigo de verificacion"
+                                control={control}
+                                name="verificationcode"
+                            />
                         </View>
                         <View className="space-y-1">
-                            <Text style={styles.text} className="text-white_text">
+                            <Text style={styles.text} className="text-white_text mb-1">
                                 Nueva contraseña
                             </Text>
-                            <View className="bg-white w-[370px] h-[55px] rounded-lg items-stretch border-color_border">
-                                <TextInput
-                                    placeholder="Nueva contraseña"
-                                />
-                            </View>
+                            <InputCustom
+                                placeholder="Nueva contraseña"
+                                control={control}
+                                name="newpassword"
+                            />
                         </View>
                         <View className="space-y-1 mb-2">
-                            <Text style={styles.text} className="text-white_text">
+                            <Text style={styles.text} className="text-white_text mb-1">
                                 Repite la nueva contraseña
                             </Text>
-                            <View className="bg-white w-[370px] h-[55px] rounded-lg items-stretch border-color_border">
-                                <TextInput
-                                    placeholder="Repite la nueva contraseña"
-                                />
-                            </View>
+                            <InputCustom
+                                placeholder="Repite la nueva contraseña"
+                                control={control}
+                                name="repeatpassword"
+                            />
                         </View>
                         <View className="w-[370px] h-[45px] mb-2">
-                            <TouchableOpacity className=" bg-button_sesion_color w-full h-full rounded-lg flex justify-center items-center flex-row">
+                            {/* <TouchableOpacity className=" bg-button_sesion_color w-full h-full rounded-lg flex justify-center items-center flex-row">
                                 <Text className="text-white_text text-lg" style={styles.text}>
                                     RESTAURAR CONTRASEÑA
                                 </Text>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
+                            <ButtonCustom text="RESTAURAR CONTRASEÑA" style={styles.text} onPress={goToScreenLogin}/>
                         </View>
                         <View className="w-[370px] h-[45px] mb-2">
                             <TouchableOpacity className="border-2 border-white w-full h-full rounded-lg flex justify-center items-center flex-row">
@@ -87,7 +96,7 @@ export function ResetPasswordTwo() {
                                 </Text>
                             </View>
                             <View>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={goToScreenLogin}>
                                     <Text className="font-bold text-button_sesion_color" style={styles.parrafo} >
                                         Inicia sesion
                                     </Text>
