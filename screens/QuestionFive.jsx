@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 })
 
 
-export function QuestionFour() {
+export function QuestionFive() {
     const navigation = useNavigation();
     const options = ['Padel', 'Tenis', 'Fútbol', 'Golf', 'Basquet', 'Hockey', 'Squash']
     const goToQuestionFive = () => navigation.navigate('QuestionFive');
@@ -69,7 +69,7 @@ export function QuestionFour() {
                     </View>
                 </View>
                 <View className="absolute top-[198px] left-[350]">
-                    <Text className="text-white_text text-xs">4/6</Text>
+                    <Text className="text-white_text text-xs">5/5</Text>
                 </View>
             </View>
             <View className="absolute top-[250]">
