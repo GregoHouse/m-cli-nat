@@ -69,7 +69,7 @@ export function QuestionFour() {
                     </View>
                 </View>
                 <View className="absolute top-[198px] left-[350]">
-                    <Text className="text-white_text text-xs">4/6</Text>
+                    <Text className="text-white_text text-xs">4/5</Text>
                 </View>
             </View>
             <View className="absolute top-[250]">

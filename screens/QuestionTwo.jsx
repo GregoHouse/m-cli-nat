@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Icon from 'react-native-vector-icons/Fontisto';
 import { ButtonCustom } from "../components/ButtonCustom";
+import { useNavigation } from "@react-navigation/native"
 
 const styles = StyleSheet.create({
     text: {
@@ -20,6 +21,9 @@ export function QuestionTwo() {
     const [date, setDate] = useState("")
     const [open, setOpen] = useState(false)
     const hoy = new Date().toISOString().split("T").shift()
+    const navigation = useNavigation();
+
+    const goToQuestionThree = () => navigation.navigate('QuestionThree');
 
 
     return (
@@ -47,7 +51,7 @@ export function QuestionTwo() {
                     </View>
                 </View>
                 <View className="absolute top-[198px] left-[350]">
-                    <Text className="text-white_text text-xs">2/6</Text>
+                    <Text className="text-white_text text-xs">2/5</Text>
                 </View>
             </View>
             <View className="absolute top-[250]">
@@ -118,6 +122,7 @@ export function QuestionTwo() {
                     {
                         date ?
                             <ButtonCustom
+                                onPress={goToQuestionThree}
                                 text="Siguiente"
                                 style={styles.text}
                             /> :
