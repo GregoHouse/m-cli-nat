@@ -1,10 +1,25 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, Modal } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import logo from "../assets/images/icono_logo_matching_-_oscuro.jpg";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import Icon from 'react-native-vector-icons/Fontisto';
 import { ButtonCustom } from "../components/ButtonCustom";
 import { useNavigation } from "@react-navigation/native";
+import padeli from '../assets/icons/inactive/padel.png'
+import tenisi from '../assets/icons/inactive/tenis.png'
+import futboli from '../assets/icons/inactive/football.png';
+import golfi from '../assets/icons/inactive/golf.png'
+import basqueti from '../assets/icons/inactive/basquet.png'
+import hockeyi from '../assets/icons/inactive/hockey.png'
+import squashi from '../assets/icons/inactive/squash.png'
+
+import padel from '../assets/icons/active/padel.png'
+import tenis from '../assets/icons/active/tenis.png'
+import futbol from '../assets/icons/active/football.png';
+import golf from '../assets/icons/active/golf.png'
+import basquet from '../assets/icons/active/basquet.png'
+import hockey from '../assets/icons/active/hockey.png'
+import squash from '../assets/icons/active/squash.png'
+
 
 const styles = StyleSheet.create({
     text: {
@@ -13,17 +28,20 @@ const styles = StyleSheet.create({
     parrafo: {
         fontFamily: "Poppins-Regular"
     },
-    textCenter: {
-        fontFamily: "Poppins-Regular",
-        textAlign: "center"
-    }
 })
 
 
 export function QuestionFour() {
     const navigation = useNavigation();
-    const options = ['Padel', 'Tenis', 'Fútbol', 'Golf', 'Basquet', 'Hockey', 'Squash']
-    const goToQuestionFive = () => navigation.navigate('QuestionFive');
+    const options = ['Padel', 'Tenis', 'Fútbol', 'Golf', 'Basquet', 'Hockey', 'Squash'];
+    const imageInactive = [padeli, tenisi, futboli, golfi, basqueti, hockeyi, squashi]
+    const imageActive = [padel, tenis, futbol, golf, basquet, hockey, squash]
+    const [selectedOptions, setSelectedOptions] = useState([]);
+    const goToQuestionFive = () => {
+        navigation.navigate('QuestionFive', { selectedOptions });
+    };
+
+
 
     const [open, setOpen] = useState({
         tenis: false,
@@ -42,7 +60,17 @@ export function QuestionFour() {
             ...prevState,
             [option.toLowerCase()]: !prevState[option.toLowerCase()],
         }));
+        setSelectedOptions((prevOptions) => {
+            if (prevOptions.includes(option)) {
+                // La opción ya está seleccionada, la eliminamos del array
+                return prevOptions.filter((item) => item !== option);
+            } else {
+                // La opción no está seleccionada, la agregamos al array
+                return [...prevOptions, option];
+            }
+        });
     };
+
 
     return (
         <View className="h-full bg-background_login">
@@ -64,7 +92,7 @@ export function QuestionFour() {
                     <View className="bg-black absolute top-[205px] left-5 h-1 w-[316]">
                         <Text></Text>
                     </View>
-                    <View className={`bg-linear_gradient1 absolute top-[205px] left-5 h-1 w-[110]`}>
+                    <View className={`bg-linear_gradient1 absolute top-[205px] left-5 h-1 w-[250]`}>
                         <Text></Text>
                     </View>
                 </View>
@@ -83,13 +111,31 @@ export function QuestionFour() {
                 </Text>
             </View>
 
-
             <View className="absolute top-[350] flex-1 flex-row flex-wrap gap-4">
                 {options.map((option, index) => (
-                    <TouchableOpacity onPress={() => setSelected(option)} className="mt-4" key={index}>
-                        <View className={`${open[option.toLowerCase()] ? "w-[119px] h-[64px] rounded-2xl border-2 border-white flex-row justify-between" : "border-grey5_6 flex-row justify-between w-[119px] h-[64px] rounded-2xl border-2"}`}>
+                    <TouchableOpacity
+                        onPress={() => setSelected(option)}
+                        className="mt-4"
+                        key={index}
+                    >
+                        <View
+                            className={`${open[option.toLowerCase()]
+                                ? "w-[119px] h-[64px] rounded-2xl border-2 border-white flex-row justify-between"
+                                : "border-grey5_6 flex-row justify-between w-[119px] h-[64px] rounded-2xl border-2"
+                                }`}
+                        >
                             <View className="flex-1 items-center justify-center align-center">
-                                <Text className={`${open[option.toLowerCase()] ? "text-white_text text-base flex flex-col text-center" : "text-base flex flex-col text-grey5_6 text-center"}`} style={styles.parrafo}>
+                                <Image
+                                    source={open[option.toLowerCase()] ? imageActive[index] : imageInactive[index]}
+                                    className="w-[24px] h-[24px]"
+                                />
+                                <Text
+                                    className={`${open[option.toLowerCase()]
+                                        ? "text-white_text text-base flex flex-col text-center"
+                                        : "text-base flex flex-col text-grey5_6 text-center"
+                                        }`}
+                                    style={styles.parrafo}
+                                >
                                     {option}
                                 </Text>
                             </View>
@@ -98,6 +144,7 @@ export function QuestionFour() {
                 ))}
             </View>
 
+
             <View className="absolute left-5 top-[600]">
                 <Text className="text-button_sesion_color" style={styles.parrafo}>
                     Pronto más deportes disponibles.
@@ -105,7 +152,7 @@ export function QuestionFour() {
             </View>
             <View className="absolute top-[650] left-3 w-[370px] h-[45px]">
                 {
-                    Object.values(open).some(value => value) ?  
+                    Object.values(open).some(value => value) ?
                         <ButtonCustom
                             onPress={goToQuestionFive}
                             text="Siguiente"
