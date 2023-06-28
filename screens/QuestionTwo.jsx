@@ -2,9 +2,9 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, Modal } from "react-na
 import logo from "../assets/images/icono_logo_matching_-_oscuro.jpg";
 import DatePicker from 'react-native-modern-datepicker';
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import Icon from 'react-native-vector-icons/Fontisto';
 import { ButtonCustom } from "../components/ButtonCustom";
+import {useNavigation} from "@react-navigation/native"
 
 const styles = StyleSheet.create({
     text: {
@@ -17,10 +17,14 @@ const styles = StyleSheet.create({
 
 
 export function QuestionTwo() {
+    const navigation = useNavigation();
     const [date, setDate] = useState("")
     const [open, setOpen] = useState(false)
     const hoy = new Date().toISOString().split("T").shift()
 
+    function goToScreenQuestionThree(){
+        navigation.navigate("QuestionThree")
+    }
 
     return (
         <View className="h-full bg-background_login">
@@ -120,6 +124,7 @@ export function QuestionTwo() {
                             <ButtonCustom
                                 text="Siguiente"
                                 style={styles.text}
+                                onPress={goToScreenQuestionThree}
                             /> :
                             <ButtonCustom
                                 text="Siguiente"

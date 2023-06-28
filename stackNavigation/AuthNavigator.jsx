@@ -7,6 +7,7 @@ import { ResetPasswordTwo } from "../screens/ResetPasswordTwo";
 import { Start } from "../screens/Start";
 import { QuestionOne } from "../screens/QuestionOne";
 import { QuestionTwo } from "../screens/QuestionTwo";
+import { QuestionThree } from "../screens/QuestionThree";
 
 
 const Stack = createStackNavigator()
@@ -21,6 +22,7 @@ export function AuthNavigator(){
             <Stack.Screen options={{headerShown: false}} name="ResetPasswordTwo" component={ResetPasswordTwo}/>
             <Stack.Screen options={{headerShown: false}} name="QuestionOne" component={QuestionOne}/>
             <Stack.Screen options={{headerShown: false}} name="QuestionTwo" component={QuestionTwo}/>
+            <Stack.Screen options={{headerShown: false}} name="QuestionThree" component={QuestionThree}/>
         </Stack.Navigator>
     )
 }
