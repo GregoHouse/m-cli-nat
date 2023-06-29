@@ -1,0 +1,6 @@
+.eslintrc.js
+*.json
+*.config.*
+*.md
+__tests__
+.watchmanconfig
