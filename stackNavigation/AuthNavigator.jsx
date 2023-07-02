@@ -10,6 +10,7 @@ import { QuestionTwo } from "../screens/QuestionTwo"
 import { QuestionThree } from "../screens/QuestionThree";
 import { QuestionFour } from "../screens/QuestionFour";
 import { QuestionFive } from "../screens/QuestionFive";
+import { ReservaCancha } from "../screens/ReservaCancha";
 
 
 
@@ -29,6 +30,7 @@ export function AuthNavigator(){
             <Stack.Screen options={{headerShown: false}} name="QuestionThree" component={QuestionThree}/>
             <Stack.Screen options={{headerShown: false}} name="QuestionFour" component={QuestionFour}/>
             <Stack.Screen options={{headerShown: false}} name="QuestionFive" component={QuestionFive}/>
+            <Stack.Screen options={{headerShown: false}} name="ReservaCancha" component={ReservaCancha}/>
         </Stack.Navigator>
     )
 }

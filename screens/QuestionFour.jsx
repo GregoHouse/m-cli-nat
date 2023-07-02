@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
 export function QuestionFour() {
     const navigation = useNavigation();
-    const options = ['Padel', 'Tenis', 'Fútbol', 'Golf', 'Basquet', 'Hockey', 'Squash'];
+    const sports = ['Padel', 'Tenis', 'Futbol', 'Golf', 'Basquet', 'Hockey', 'Squash'];
     const imageInactive = [padeli, tenisi, futboli, golfi, basqueti, hockeyi, squashi]
     const imageActive = [padel, tenis, futbol, golf, basquet, hockey, squash]
     const [selectedOptions, setSelectedOptions] = useState([]);
@@ -112,31 +112,31 @@ export function QuestionFour() {
             </View>
 
             <View className="absolute top-[350] flex-1 flex-row flex-wrap gap-4">
-                {options.map((option, index) => (
+                {sports.map((sport, index) => (
                     <TouchableOpacity
-                        onPress={() => setSelected(option)}
+                        onPress={() => setSelected(sport)}
                         className="mt-4"
                         key={index}
                     >
                         <View
-                            className={`${open[option.toLowerCase()]
+                            className={`${open[sport.toLowerCase()]
                                 ? "w-[119px] h-[64px] rounded-2xl border-2 border-white flex-row justify-between"
                                 : "border-grey5_6 flex-row justify-between w-[119px] h-[64px] rounded-2xl border-2"
                                 }`}
                         >
                             <View className="flex-1 items-center justify-center align-center">
                                 <Image
-                                    source={open[option.toLowerCase()] ? imageActive[index] : imageInactive[index]}
+                                    source={open[sport.toLowerCase()] ? imageActive[index] : imageInactive[index]}
                                     className="w-[24px] h-[24px]"
                                 />
                                 <Text
-                                    className={`${open[option.toLowerCase()]
+                                    className={`${open[sport.toLowerCase()]
                                         ? "text-white_text text-base flex flex-col text-center"
                                         : "text-base flex flex-col text-grey5_6 text-center"
                                         }`}
                                     style={styles.parrafo}
                                 >
-                                    {option}
+                                    {sport}
                                 </Text>
                             </View>
                         </View>
