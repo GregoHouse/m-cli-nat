@@ -14,7 +14,6 @@ import { ReservaCancha } from "../screens/ReservaCancha";
 
 
 
-
 const Stack = createStackNavigator()
 
 export function AuthNavigator(){
@@ -31,6 +30,7 @@ export function AuthNavigator(){
             <Stack.Screen options={{headerShown: false}} name="QuestionFour" component={QuestionFour}/>
             <Stack.Screen options={{headerShown: false}} name="QuestionFive" component={QuestionFive}/>
             <Stack.Screen options={{headerShown: false}} name="ReservaCancha" component={ReservaCancha}/>
+
         </Stack.Navigator>
     )
 }
