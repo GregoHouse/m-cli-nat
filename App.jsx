@@ -18,24 +18,21 @@ import store from './redux/store';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthProvider } from './context/AuthContext';
 import { UserProvider } from './context/UserContext';
+import { AuthNavigator } from './stackNavigation/AuthNavigator';
 
 
 export default function App() {
 
   return (
-    <SafeAreaView >
-      <View>
-        <Provider store={store}>
-          <AuthProvider>
-            <UserProvider>
-              <NavigationContainer>
-                <Login />
-              </NavigationContainer>
-            </UserProvider>
-          </AuthProvider>
-        </Provider>
-      </View>
-    </SafeAreaView>
+    <Provider store={store}>
+      <AuthProvider>
+        <UserProvider>
+          <NavigationContainer>
+            <AuthNavigator />
+          </NavigationContainer>
+        </UserProvider>
+      </AuthProvider>
+    </Provider>
   );
 }
 
