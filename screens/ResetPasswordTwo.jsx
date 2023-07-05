@@ -39,14 +39,14 @@ export function ResetPasswordTwo() {
                 </View>
                 <View className="absolute left-4 top-[200] ">
                     <Text className="text-white_text text-base leading-7" style={styles.parrafo}>
-                    introduce el codigo que enviamos a tu email y luego elige una nueva contraseña.
+                    Introduce el codigo que enviamos a tu email y luego elige una nueva contraseña.
                     </Text>
                 </View>
                 <View className=" w-[370px] h-[393] absolute top-[260] left-[11px]">
                     <View className="flex flex-col items-start gap-2">
                         <View className="space-y-1">
                             <Text style={styles.text} className="text-white_text mb-1">
-                                Codigo de verificacion
+                                Codigo de verificación
                             </Text>
                             <InputCustom
                                 placeholder="Codigo de verificacion"
@@ -98,7 +98,7 @@ export function ResetPasswordTwo() {
                             <View>
                                 <TouchableOpacity onPress={goToScreenLogin}>
                                     <Text className="font-bold text-button_sesion_color" style={styles.parrafo} >
-                                        Inicia sesion
+                                        Inicia sesión
                                     </Text>
                                 </TouchableOpacity>
                             </View>

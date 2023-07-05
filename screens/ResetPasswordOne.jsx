@@ -42,7 +42,7 @@ export function ResetPasswordOne() {
                 </View>
                 <View className="absolute left-4 top-[200] ">
                     <Text className="text-white_text text-base leading-7" style={styles.parrafo}>
-                        introduce tu email y te enviaremos un codigo para que restaures tu contraseña.
+                        Introduce tu email y te enviaremos un código para que restaures tu contraseña.
                     </Text>
                 </View>
                 <View className=" w-[370px] h-[393] absolute top-[260] left-[11px]">
@@ -73,7 +73,7 @@ export function ResetPasswordOne() {
                             <View>
                                 <TouchableOpacity onPress={goToScreenLogin}>
                                     <Text className="font-bold text-button_sesion_color" style={styles.parrafo} >
-                                        Inicia sesion
+                                        Inicia sesión
                                     </Text>
                                 </TouchableOpacity>
                             </View>
