@@ -43,24 +43,35 @@ export default function MyProfile() {
 			<FriendsList friends={[]} />
 			<View
 				style={{
-					marginVertical: 10,
-					overflow: 'hidden',
-					backgroundColor: 'white',
-					borderRadius: 10,
+					flexDirection: 'column',
+					alignItems: 'flex-end',
+					gap: 5,
 				}}>
-				{MOCK.USER_INFO.map(({ keyValue, value }, i) => {
-					return (
-						<InfoItem
-							keyValue={keyValue}
-							value={value}
-							key={i}
-							style={{
-								borderColor:
-									i !== MOCK.USER_INFO.length - 1 ? '#DDDDDD' : 'transparent',
-							}}
-						/>
-					);
-				})}
+				<Text style={{}} className="text-background_login font-semibold">
+					Editar
+				</Text>
+				<View
+					style={{
+						width: '100%',
+						marginVertical: 10,
+						overflow: 'hidden',
+						backgroundColor: 'white',
+						borderRadius: 10,
+					}}>
+					{MOCK.USER_INFO.map(({ keyValue, value }, i) => {
+						return (
+							<InfoItem
+								keyValue={keyValue}
+								value={value}
+								key={i}
+								style={{
+									borderColor:
+										i !== MOCK.USER_INFO.length - 1 ? '#DDDDDD' : 'transparent',
+								}}
+							/>
+						);
+					})}
+				</View>
 			</View>
 		</View>
 	);
