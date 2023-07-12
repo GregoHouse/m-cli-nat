@@ -6,6 +6,7 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
+import MyProfile from './MyProfile';
 
 const tabs = ['Mi Perfil', 'Perfiles Deportivos'];
 
@@ -42,6 +43,7 @@ export default function UserProfile() {
 					);
 				})}
 			</View>
+			{currentPage === tabs[0] && <MyProfile />}
 		</ScrollView>
 	);
 }
