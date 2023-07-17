@@ -18,12 +18,14 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Regular"
     },
 })
+
 export function ReservaCancha() {
     const navigation = useNavigation();
     const { control, handleSubmit, setValue } = useForm()
     const [isFormComplete, setIsFormComplete] = useState(false);
-    const goToQuestionFour = () => {
-        navigation.navigate('QuestionFour');
+
+    const goToLogin = () => {
+        navigation.navigate('Login');
     };
 
     const isFormValid = (isValid) => {
@@ -98,8 +100,8 @@ export function ReservaCancha() {
                         </Text>
                         <View>
 
-                            <ThirdInput
-
+                            <SecondInput
+                                keyboardType="numeric"
                                 control={control}
                                 name="expirationDate"
                             />
@@ -112,19 +114,21 @@ export function ReservaCancha() {
                         CVV
                     </Text>
                     <View>
-                        <FourthInput
+                        <SecondInput
+                            keyboardType="numeric"
                             control={control}
                             name="CVV"
+                            
                         />
                     </View>
                 </View>
             </View>
                 <View className="absolute top-[650] left-3 w-[370px] h-[45px]">
                     <ButtonCustom
-                        onPress={goToQuestionFour}
+                        onPress={goToLogin}
                         text="Siguiente"
                         style={styles.text}
-                        disabled={!isFormComplete}
+                        disabled={!isFormValid}
 
                     />
                 </View>
