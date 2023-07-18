@@ -4,6 +4,8 @@ import logo from "../assets/images/icono_logo_matching_-_oscuro.jpg";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useForm } from "react-hook-form";
 import { InputCustom } from "../components/InputCustom";
+import { ButtonCustom } from "../components/ButtonCustom";
+
 
 const styles = StyleSheet.create({
     text: {
@@ -17,6 +19,12 @@ const styles = StyleSheet.create({
 export function QuestionThree() {
     const { control, setValue } = useForm()
     const navigation = useNavigation();
+
+
+
+    function goToScreenQuestionFour(){
+        navigation.navigate("QuestionFour")
+    }
     return (
         <View className="h-full bg-background_login">
             <View className="absolute top-12 left-[50px]">
@@ -42,7 +50,7 @@ export function QuestionThree() {
                     </View>
                 </View>
                 <View className="absolute top-[198px] left-[350]">
-                    <Text className="text-white_text text-xs">2/6</Text>
+                    <Text className="text-white_text text-xs">3/5</Text>
                 </View>
             </View>
             <View className="absolute top-[250]">
@@ -65,6 +73,19 @@ export function QuestionThree() {
                     Tu número de telefono:
                 </Text>
             </View>
+            <View className="absolute top-[550] left-3 w-[370px] h-[45px]">
+                    {
+                
+                            <ButtonCustom
+                                onPress={goToScreenQuestionFour}
+                                text="Siguiente"
+                                style={styles.text}
+                           
+                            /> 
+                           
+                    }
+                </View> 
+
         </View>
     )
 }
