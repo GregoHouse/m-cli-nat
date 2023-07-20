@@ -26,7 +26,7 @@ const ActivitySport = [
 	},
 	{
 		n: 4,
-		text: 'Organizadas',
+		text: 'Organizados',
 	},
 	{
 		n: 14,

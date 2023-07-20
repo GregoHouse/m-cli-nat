@@ -2,30 +2,49 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 import QrImage from '../../../assets/icons/qr-code.png';
 
+const Records = {
+	Jugadas: {
+		icon: '🎾',
+	},
+	Ganadas: {
+		icon: '🏆',
+	},
+	Perdidas: {
+		icon: '👎🏽',
+	},
+	Organizados: {
+		icon: '🎖️',
+	},
+	Asistencias: {
+		icon: '📋',
+	},
+	Canceladas: {
+		icon: '🚫',
+	},
+};
+
 export const MyActivityBox = ({ records }) => {
 	return (
 		<View className="mt-8">
 			<Text className="mb-2 font-semibold">Mi Actividad</Text>
-			<BoxStyled className="border-linear_gradient1 border-4 relative p-4 py-2">
+			<BoxStyled className="relative px-1 py-4 flex-col items-center">
 				<View className="absolute top-[-20%] left-[40%] z-10 p-4 bg-background_login rounded-2xl flex-col items-center justify-center">
 					<Text className="rounded-md text-white">JUEGOS</Text>
 				</View>
-				<View className="flex-row flex-wrap gap-2 mt-5">
+				<View className="flex-row flex-wrap justify-between gap-2 mt-1 w-full">
 					{records.map(({ n, text }, i) => {
+						const { icon } = Records[text] ?? { icon: 'error' };
 						return (
 							<View
-								className="overflow-hidden rounded-md justify-center items-center px-2 py-4"
+								className="flex-row overflow-hidden rounded-md justify-center items-center gap-1 py-2 px-1"
 								key={i}
 								style={{
-									maxWidth: '31%',
-									minWidth: '20%',
 									width: '30%',
 									overflow: 'hidden',
 								}}>
-								<View className="flex-row" onMouse>
-									<Text className="">{n}</Text>
-									<Text className="">{text}</Text>
-								</View>
+								<Text className="font-bold text-sm  ">{n}</Text>
+								<Text className="text-xs font-bold">{icon}</Text>
+								<Text className="text-xs font-bold">{text}</Text>
 							</View>
 						);
 					})}
