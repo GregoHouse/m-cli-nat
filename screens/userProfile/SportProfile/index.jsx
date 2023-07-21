@@ -1,14 +1,14 @@
-import { ScrollView } from 'react-native';
-import { MyActivityBox, PointsBox, PreferencesSection } from './sections';
+import { View } from 'react-native';
 import { ActivitySport } from './constants';
+import { MyActivityBox, PointsBox, PreferencesSection } from './sections';
 
 export default function SportProfile() {
 	return (
-		<ScrollView>
+		<View style={{ marginBottom: 10 }}>
 			<MyActivityBox records={ActivitySport} sports={SportList} />
 			<PointsBox />
 			<PreferencesSection />
-		</ScrollView>
+		</View>
 	);
 }
 

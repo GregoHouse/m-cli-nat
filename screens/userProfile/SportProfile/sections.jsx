@@ -4,6 +4,25 @@ import QrImage from '../../../assets/icons/qr-code.png';
 import { SPORT_ICONS } from '../../../constants/images/sports';
 import { Records, preferences } from './constants';
 
+const ClubImage = ({ url, style, className }) => {
+	return (
+		<Image
+			className={className}
+			source={{ uri: url }}
+			style={[
+				{
+					width: 50,
+					height: 50,
+					borderRadius: 100,
+					borderWidth: 3,
+					borderColor: 'white',
+				},
+				style,
+			]}
+		/>
+	);
+};
+
 export const MyActivityBox = ({ records, sports }) => {
 	const [currentSport, setCurrentSport] = useState(sports[0]);
 
@@ -42,7 +61,6 @@ export const MyActivityBox = ({ records, sports }) => {
 											}}
 										/>
 									)}
-
 									<Text
 										className="rounded-md text-base"
 										style={{
@@ -74,9 +92,19 @@ export const MyActivityBox = ({ records, sports }) => {
 						);
 					})}
 				</View>
-				<Text className="text-grey5_6 font-semibold text-sm text-center mt-4">
-					Clubes asociados
-				</Text>
+				<View className="flex-col gap-2 mt-2">
+					<View className="flex-row items-center" style={{ gap: -18 }}>
+						<ClubImage url="https://logodownload.org/wp-content/uploads/2019/04/alianza-lima-logo-escudo.png" />
+						<ClubImage url="https://logodownload.org/wp-content/uploads/2019/04/alianza-lima-logo-escudo.png" />
+						<ClubImage url="https://logodownload.org/wp-content/uploads/2019/04/alianza-lima-logo-escudo.png" />
+						<Text style={{ marginLeft: 20 }} className="text-[#DDDDDD] text-lg">
+							+2
+						</Text>
+					</View>
+					<Text className="text-grey5_6 font-semibold text-sm text-center mt-4">
+						Clubes asociados
+					</Text>
+				</View>
 			</BoxStyled>
 		</View>
 	);
