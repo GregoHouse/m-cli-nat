@@ -1,39 +1,64 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native';
-
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { useState } from 'react';
 import QrImage from '../../../assets/icons/qr-code.png';
+import { SPORT_ICONS } from '../../../constants/images/sports';
+import { Records, preferences } from './constants';
 
-const Records = {
-	Jugadas: {
-		icon: '🎾',
-	},
-	Ganadas: {
-		icon: '🏆',
-	},
-	Perdidas: {
-		icon: '👎🏽',
-	},
-	Organizados: {
-		icon: '🎖️',
-	},
-	Asistencias: {
-		icon: '📋',
-	},
-	Canceladas: {
-		icon: '🚫',
-	},
-};
+export const MyActivityBox = ({ records, sports }) => {
+	const [currentSport, setCurrentSport] = useState(sports[0]);
 
-export const MyActivityBox = ({ records }) => {
 	return (
 		<View className="mt-8">
 			<Text className="mb-2 font-semibold">Mi Actividad</Text>
 			<BoxStyled className="relative px-1 py-4 flex-col items-center">
-				<View className="absolute top-[-20%] left-[40%] z-10 p-4 bg-background_login rounded-2xl flex-col items-center justify-center">
-					<Text className="rounded-md text-white">JUEGOS</Text>
+				<View className="absolute top-[-30%] left-[38%] z-10 rounded-2xl">
+					<ScrollView
+						horizontal
+						className=" flex"
+						style={{
+							flex: 1,
+						}}
+						contentContainerStyle={{
+							gap: 10,
+							paddingBottom: 6,
+						}}>
+						{sports.map((text, i) => {
+							const icon = SPORT_ICONS[text];
+							return (
+								<TouchableOpacity
+									onPress={() => setCurrentSport(text)}
+									key={i}
+									style={{
+										backgroundColor:
+											currentSport === text ? '#203144' : '#f4f5f6',
+									}}
+									className="py-2 px-10 rounded-2xl justify-center items-center">
+									{icon && (
+										<Image
+											source={icon.active}
+											style={{
+												width: 30,
+												height: 30,
+											}}
+										/>
+									)}
+
+									<Text
+										className="rounded-md text-base"
+										style={{
+											color: currentSport === text ? 'white' : '#676666',
+											fontWeight: currentSport === text ? 'bold' : 'normal',
+										}}>
+										{text}
+									</Text>
+								</TouchableOpacity>
+							);
+						})}
+					</ScrollView>
 				</View>
-				<View className="flex-row flex-wrap justify-between gap-2 mt-1 w-full">
+				<View className="flex-row flex-wrap justify-between gap-2 mt-2 w-full">
 					{records.map(({ n, text }, i) => {
-						const { icon } = Records[text] ?? { icon: 'error' };
+						const icon = Records[text] ?? '🚫';
 						return (
 							<View
 								className="flex-row overflow-hidden rounded-md justify-center items-center gap-1 py-2 px-1"
@@ -42,7 +67,7 @@ export const MyActivityBox = ({ records }) => {
 									width: '30%',
 									overflow: 'hidden',
 								}}>
-								<Text className="font-bold text-sm  ">{n}</Text>
+								<Text className="font-bold text-sm">{n}</Text>
 								<Text className="text-xs font-bold">{icon}</Text>
 								<Text className="text-xs font-bold">{text}</Text>
 							</View>
@@ -65,13 +90,13 @@ export const PointsBox = () => {
 				<View className="aspect-square justify-center items-center rounded-full p-3 bg-linear_gradient1">
 					<Text className="text-white font-bold">234</Text>
 				</View>
-				<Text className="text-background_login font-semibold text-sm">
+				<Text className="text-background_login font-bold text-sm">
 					Puntos acumulados
 				</Text>
 				<TouchableOpacity className="flex-row items-center justify-center bg-button_sesion_color rounded-xl py-3 px-8">
 					<View className="flex-row gap-4">
 						<Image source={QrImage} className="bg-red w-5 h-5" />
-						<Text className="text-white font-semibold">Canjear</Text>
+						<Text className="text-white text-base">Canjear</Text>
 					</View>
 				</TouchableOpacity>
 			</BoxStyled>
@@ -79,7 +104,7 @@ export const PointsBox = () => {
 	);
 };
 
-export const PreferencesSection = ({ preferences }) => {
+export const PreferencesSection = () => {
 	return (
 		<View className="mt-8">
 			<View className="flex flex-row justify-between mb-2">
@@ -87,14 +112,18 @@ export const PreferencesSection = ({ preferences }) => {
 				<Text className="text-background_login font-semibold">Editar</Text>
 			</View>
 			<View className="flex flex-col gap-2">
-				{preferences.map(({ keyValue, value }, i) => {
+				{preferences.map(({ keyValue, value, icon }, i) => {
 					return (
 						<BoxStyled className="flex flex-row justify-between p-4" key={i}>
 							<View className="flex flex-row gap-4">
-								{/* LOGO */}
-								<Text className="text-background_login">{keyValue}</Text>
+								<Image source={icon} style={{ width: 18, height: 18 }} />
+								<Text
+									className="text-background_login font-semibold"
+									style={{ fontSize: 15 }}>
+									{keyValue}
+								</Text>
 							</View>
-							<Text>{value}</Text>
+							<Text className="font-semibold">{value}</Text>
 						</BoxStyled>
 					);
 				})}
