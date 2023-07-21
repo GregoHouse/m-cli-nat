@@ -106,7 +106,7 @@ export const PointsBox = () => {
 
 export const PreferencesSection = () => {
 	return (
-		<View className="mt-8">
+		<View className="mt-4">
 			<View className="flex flex-row justify-between mb-2">
 				<Text className="font-semibold">Mis Preferencias</Text>
 				<Text className="text-background_login font-semibold">Editar</Text>
