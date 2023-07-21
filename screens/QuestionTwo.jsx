@@ -17,17 +17,12 @@ const styles = StyleSheet.create({
 
 
 export function QuestionTwo() {
-    const navigation = useNavigation();
     const [date, setDate] = useState("")
     const [open, setOpen] = useState(false)
     const hoy = new Date().toISOString().split("T").shift()
-    const navigation = useNavigation();
 
     const goToQuestionThree = () => navigation.navigate('QuestionThree');
 
-    function goToScreenQuestionThree(){
-        navigation.navigate("QuestionThree")
-    }
 
     return (
         <View className="h-full bg-background_login">
@@ -128,7 +123,7 @@ export function QuestionTwo() {
                                 onPress={goToQuestionThree}
                                 text="Siguiente"
                                 style={styles.text}
-                                onPress={goToScreenQuestionThree}
+                         
                             /> :
                             <ButtonCustom
                                 text="Siguiente"

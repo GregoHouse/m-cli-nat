@@ -51,7 +51,7 @@ export function QuestionFive() {
     }
 
     const goToReserve = () => {
-        navigation.navigate('QuestionFive', { selectedOptions });
+        navigation.navigate('ReservaCancha');
     };
 
     const [open, setOpen] = useState({
@@ -73,8 +73,6 @@ export function QuestionFive() {
                 '¿Tu lado de la cancha?',
                 '¿Tipo de juego?',
                 '¿A qué categoría perteneces?',
-                'hola?',
-                'que tal'
 
             ],
 
@@ -83,8 +81,6 @@ export function QuestionFive() {
                 ['Reves', 'Derecha', 'Ambas'],
                 ['Competitivo', 'Amistoso', 'Ambas'],
                 ['Principiante', 'Intermedio', 'Avanzado'],
-                ['chau'],
-                ['que tal']
             ],
             answerSelect: [
             ]
