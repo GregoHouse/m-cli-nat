@@ -125,7 +125,6 @@ export function ReservaCancha() {
                         <SecondInput
                             control={control}
                             name="creditCardNumber"
-                         
                             maxLength={16}
                             minLength={13}
                             keyboardType="numeric"
