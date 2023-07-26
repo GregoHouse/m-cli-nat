@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const TouchableIconNavigation = ({ iconName, PageName, navigation }) => {
   return (
     <TouchableOpacity onPress={() => navigation.navigate(PageName)}>
-      <Icon name={iconName} size={30} color='black' />
+      <Icon name={iconName} size={25} color='black' />
     </TouchableOpacity>
   );
 };

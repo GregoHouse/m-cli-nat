@@ -2,12 +2,12 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const TouchableIconShareApp = ({ iconName }) => {
+const TouchableIconShareApp = ({ iconName, onShare }) => {
   return (
     <TouchableOpacity 
-    // onPress={} add code to share aplication to a friend
+    onPress={() => onShare()}
     >
-      <Icon name={iconName} size={30} color='black' />
+      <Icon name={iconName} size={25} color='black' />
     </TouchableOpacity>
   );
 };

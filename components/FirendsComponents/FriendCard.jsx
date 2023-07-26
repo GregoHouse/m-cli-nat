@@ -2,11 +2,10 @@ import React from 'react';
 import { Image, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { styles } from '../theme/appTheme';
+import { styles } from '../../theme/appTheme';
 
-const FriendCard = ({ name, last, avatar, info, backgroundColor }) => {
+const FriendCard = ({ name, last, avatar, info, backgroundColor, setModalVisible, modalVisible }) => {
   return (
-    <TouchableOpacity>
     <View style={{
       ...styles.friendContainer,
       backgroundColor: backgroundColor
@@ -22,10 +21,13 @@ const FriendCard = ({ name, last, avatar, info, backgroundColor }) => {
           <Text style={styles.friendNameSubtext}>{ info }</Text>
         </View>
         <View style={styles.actionFriendBox}>
-          <Icon name='ellipsis-horizontal' size={30} color='black' />
+         <TouchableOpacity
+          onPress={() => setModalVisible(!modalVisible)}
+         >
+            <Icon name='ellipsis-horizontal' size={30} color='black' />
+         </TouchableOpacity>
         </View>
     </View>
-  </TouchableOpacity>
   );
 };
 

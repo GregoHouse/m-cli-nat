@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import TouchableIconNavigation from './TouchableIconNavigation';
-import TouchableIconShareApp from './TouchableIconShareApp';
-import { styles } from '../theme/appTheme';
+import TouchableIconNavigation from '../TouchableIconNavigation';
+import TouchableIconShareApp from '../TouchableIconShareApp';
+import { styles } from '../../theme/appTheme';
 
 const FriendsFooter = ({navigation}) => {
   return (

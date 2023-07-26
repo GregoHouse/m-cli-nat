@@ -30,13 +30,16 @@ export const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   actionFriendBox: {
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   addFriendBox: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    width: '15%',
+    // fontWeight: '900'
   },
   shareFriendBox: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    width: '15%'
   },
   avatarFriend: {
     borderRadius: 50,
@@ -70,6 +73,59 @@ export const styles = StyleSheet.create({
   totalFriends: {
     fontSize: 14,
     color: '#808080',
-    marginBottom: 5
-  }
+    width: '70%',
+    alignSelf: 'center'
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    width: '100%',
+    backgroundColor: 'white',
+    borderRadius: 15,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  buttonClose: {
+    backgroundColor: '#0075F8',
+    padding: 10,
+    paddingRight: 20,
+    paddingLeft: 20,
+    borderRadius: 20,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalTextContainer: {
+    width: '90%'
+  },
+  modalText: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 0
+  },
+  iconContainer:{
+    backgroundColor: '#F3F3F3',
+    borderRadius: 50,
+    padding: 10,
+    paddingLeft:12,
+    marginRight: 15
+  },
+  cardActionFriends: {
+    flexDirection: 'row',
+    marginBottom: 15
+  },
 });
