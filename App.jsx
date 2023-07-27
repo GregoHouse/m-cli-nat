@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { AuthContext, AuthProvider } from './context/AuthContext';
 import { UserProvider } from './context/UserContext';
 import { AuthNavigator } from './stackNavigation/AuthNavigator';
-import UserAppNavigator from './stackNavigation/UserAppNavigator';
+import UserAppNavigator from './stackNavigation/userAppNavigator';
 import { useContext } from 'react';
 
 const Router = () => {
