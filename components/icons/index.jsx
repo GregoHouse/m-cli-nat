@@ -8,3 +8,24 @@ export const ArrowLeftIcon = props => {
 export const FilterIcon = props => {
 	return <Image source={SIMPLE_ICONS.filter} {...props} />;
 };
+
+const ChevronDirection = {
+	left: '0deg',
+	right: '180deg',
+	top: '90deg',
+	bottom: '-90deg',
+};
+export const ChevronIcon = ({ direction, className, style }) => {
+	return (
+		<Image
+			source={SIMPLE_ICONS.chevronLeft}
+			className={className}
+			style={[
+				{
+					transform: [{ rotate: ChevronDirection[direction] ?? '0deg' }],
+				},
+				style,
+			]}
+		/>
+	);
+};
