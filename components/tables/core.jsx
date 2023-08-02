@@ -35,13 +35,20 @@ export const TableBodyText = ({ width, color, text, className }) => {
 	);
 };
 
-export const TableHeader = ({ style, bgColor, color, headers, sizes }) => {
+export const TableHeader = ({
+	style,
+	bgColor,
+	color,
+	headers,
+	sizes,
+	borderColor,
+	borderWidth,
+}) => {
 	return (
 		<View
 			className="bg-white flex-row rounded-lg"
 			style={
 				({
-					color,
 					backgroundColor: bgColor,
 				},
 				[style])
@@ -50,6 +57,12 @@ export const TableHeader = ({ style, bgColor, color, headers, sizes }) => {
 			{headers.map((header, i) => {
 				return (
 					<TableHaderText
+						style={{
+							color,
+							borderRightWidth: borderWidth ?? 1,
+							borderColor:
+								i != headers.length - 1 ? borderColor : 'transparent',
+						}}
 						key={i}
 						text={header}
 						width={sizes ? sizes[i] : undefined}
