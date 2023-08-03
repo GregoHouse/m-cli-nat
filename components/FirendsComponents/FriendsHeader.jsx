@@ -6,8 +6,9 @@ import { styles } from '../../theme/appTheme';
 import TouchableIconNavigation from '../TouchableIconNavigation';
 import TouchableIconShareApp from '../TouchableIconShareApp';
 import onShare from '../../utils/onShare';
+import TouchableIconModal from '../TouchableIconModal';
 
-const FriendsHeader = ({value, onChange, total, navigation}) => {
+const FriendsHeader = ({value, onChange, total, addFriendModal, setAddFriendModal}) => {
  
    return (
     <View>
@@ -28,7 +29,7 @@ const FriendsHeader = ({value, onChange, total, navigation}) => {
       <View style={{flex: 1, flexDirection: 'row', margin: 5}}>
           <Text style={styles.totalFriends}>{total} amigos</Text>
         <View style={styles.addFriendBox}>
-          <TouchableIconNavigation iconName="person-add-outline" navigation={navigation} PageName='AddFriendScreen'  />
+          <TouchableIconModal iconName="person-add-outline" addFriendModal={addFriendModal} setAddFriendModal={setAddFriendModal} />
         </View>
         <View style={styles.shareFriendBox}>
           <TouchableIconShareApp 

@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   infoFriendBox: {
-    width: '75%',
+    width: '70%',
     alignSelf: 'center'
   },
   actionFriendBox: {
@@ -110,12 +110,15 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalTextContainer: {
-    width: '90%'
+    width: '85%'
   },
   modalText: {
     fontSize: 16,
     fontWeight: '600',
-    marginBottom: 0
+    marginBottom: 0,
+  },
+  modalSubtext: {
+    paddingRight: 3
   },
   iconContainer:{
     backgroundColor: '#F3F3F3',
