@@ -79,7 +79,7 @@ const HistoryRowInfo = ({ dateAndTime, results, bg, clubImage, teamImgs }) => {
 
 export default function HistoryTable({ rowColumns }) {
 	return (
-		<View className="mt-2">
+		<View className="mt-2 flex-1">
 			<Table.Header
 				borderColor="#DDDDDD80"
 				headers={['Fecha  hs.', 'Club', 'Equipo', 'Resultados', 'Más']}
