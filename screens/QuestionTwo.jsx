@@ -20,7 +20,7 @@ export function QuestionTwo() {
     const [date, setDate] = useState("")
     const [open, setOpen] = useState(false)
     const hoy = new Date().toISOString().split("T").shift()
-
+    const navigation = useNavigation();
     const goToQuestionThree = () => navigation.navigate('QuestionThree');
 
 
@@ -123,7 +123,7 @@ export function QuestionTwo() {
                                 onPress={goToQuestionThree}
                                 text="Siguiente"
                                 style={styles.text}
-                         
+
                             /> :
                             <ButtonCustom
                                 text="Siguiente"
