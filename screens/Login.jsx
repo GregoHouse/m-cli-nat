@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import {useNavigation} from "@react-navigation/native"
 import { InputCustom } from "../components/InputCustom";
 import { ButtonCustom } from "../components/ButtonCustom";
+import { AuthContextWithReducer } from "../context/AuthContextWithReducer";
 
 const styles = StyleSheet.create({
     text: {
@@ -19,8 +20,8 @@ const styles = StyleSheet.create({
 export function Login() {
     const { control, handleSubmit, setValue } = useForm()
     const navigation = useNavigation();
-    const {isAuth} = useContext(AuthContext)
-    console.log(isAuth)
+    const {authState} = useContext(AuthContextWithReducer)
+    console.log(authState.isLoggedIn)
 
     function goToScreenRegister(){
         navigation.navigate("Register")

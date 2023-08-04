@@ -11,7 +11,6 @@ import { QuestionThree } from "../screens/QuestionThree";
 import { QuestionFour } from "../screens/QuestionFour";
 import { QuestionFive } from "../screens/QuestionFive";
 import { ReservaCancha } from "../screens/ReservaCancha";
-import AddFriendScreen from "../screens/FriendProfileScreen";
 import FriendsScreen from "../screens/FriendsScreen";
 import FriendProfileScreen from "../screens/FriendProfileScreen";
 
@@ -22,7 +21,7 @@ const Stack = createStackNavigator()
 export function AuthNavigator(){
     return(
         <Stack.Navigator>
-            {/* <Stack.Screen options={{headerShown: false}} name="Start" component={Start}/>
+            <Stack.Screen options={{headerShown: false}} name="Start" component={Start}/>
             <Stack.Screen options={{headerShown: false}} name="Login" component={Login}/>
             <Stack.Screen options={{headerShown: false}} name="Register" component={Register}/>
             <Stack.Screen options={{headerShown: false}} name="ResetPasswordOne" component={ResetPasswordOne}/>
@@ -32,7 +31,7 @@ export function AuthNavigator(){
             <Stack.Screen options={{headerShown: false}} name="QuestionThree" component={QuestionThree}/>
             <Stack.Screen options={{headerShown: false}} name="QuestionFour" component={QuestionFour}/>
             <Stack.Screen options={{headerShown: false}} name="QuestionFive" component={QuestionFive}/>
-            <Stack.Screen options={{headerShown: false}} name="ReservaCancha" component={ReservaCancha}/> */}
+            <Stack.Screen options={{headerShown: false}} name="ReservaCancha" component={ReservaCancha}/>
             <Stack.Screen options={{title: 'Mis amigos'}} name="FriendsScreen" component={FriendsScreen}/>
             <Stack.Screen options={{title: 'Perfil de mi amigo'}} name="FriendProfileScreen" component={FriendProfileScreen}/>
         </Stack.Navigator>

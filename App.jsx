@@ -22,9 +22,7 @@ export default function App() {
     <Provider store={store}>
       <AuthProviderWithReducer>
           <UserProvider>
-            <NavigationContainer>
-              <AuthNavigator />
-            </NavigationContainer>
+            <Router />
           </UserProvider>
       </AuthProviderWithReducer>
     </Provider>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Controller } from "react-hook-form";
 import { Text, TextInput, View } from "react-native";
-import { PaymentIcon } from "react-native-payment-icons";
+// import { PaymentIcon } from "react-native-payment-icons";
 
 
 export function SecondInput({ control, name, placeholder, rules = {}, secureTextEntry, editable, keyboardType
@@ -57,7 +57,7 @@ export function SecondInput({ control, name, placeholder, rules = {}, secureText
                         />
                     </View>
                     {value && cardBrand !== "Desconocido" && (
-                        <PaymentIcon type={cardBrand.toLowerCase()} />
+                        {/* <PaymentIcon type={cardBrand.toLowerCase()} /> */}
                     )}
                     {error && <Text className="text-red-700 font-semibold text-xs self-stretch ml-5 leading-3"> {error.message || `${placeholder} es Requerido`}</Text>}
                 </>
