@@ -7,7 +7,7 @@ import { ButtonCustom } from "../components/ButtonCustom";
 import { useEffect, useState } from "react";
 import { ThirdInput } from "../components/ThirdInput";
 import { CvvInput } from "../components/CvvInput";
-import { PaymentIcon } from 'react-native-payment-icons'
+// import { PaymentIcon } from 'react-native-payment-icons'
 import { NameInput } from "../components/NameInput";
 
 

@@ -2,12 +2,12 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const TouchableIconNavigation = ({ iconName, PageName, navigation }) => {
+const TouchableIconModal = ({ iconName, setAddFriendModal }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(PageName)}>
+    <TouchableOpacity onPress={() => setAddFriendModal(true)}>
       <Icon name={iconName} size={25} color='black' />
     </TouchableOpacity>
   );
 };
 
-export default TouchableIconNavigation;
+export default TouchableIconModal;

@@ -11,8 +11,8 @@ import { QuestionThree } from "../screens/QuestionThree";
 import { QuestionFour } from "../screens/QuestionFour";
 import { QuestionFive } from "../screens/QuestionFive";
 import { ReservaCancha } from "../screens/ReservaCancha";
-import AddFriendScreen from "../screens/AddFriendScreen";
 import FriendsScreen from "../screens/FriendsScreen";
+import FriendProfileScreen from "../screens/FriendProfileScreen";
 
 
 
@@ -33,7 +33,7 @@ export function AuthNavigator(){
             <Stack.Screen options={{headerShown: false}} name="QuestionFive" component={QuestionFive}/>
             <Stack.Screen options={{headerShown: false}} name="ReservaCancha" component={ReservaCancha}/>
             <Stack.Screen options={{title: 'Mis amigos'}} name="FriendsScreen" component={FriendsScreen}/>
-            <Stack.Screen options={{title: 'Agregar amigo'}} name="AddFriendScreen" component={AddFriendScreen}/>
+            <Stack.Screen options={{title: 'Perfil de mi amigo'}} name="FriendProfileScreen" component={FriendProfileScreen}/>
         </Stack.Navigator>
-    )
+    );
 }
