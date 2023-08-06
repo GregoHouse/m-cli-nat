@@ -4,7 +4,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const TouchableIconModal = ({ iconName, setAddFriendModal }) => {
   return (
-    <TouchableOpacity onPress={() => setAddFriendModal(true)}>
+    <TouchableOpacity onPress={() => {
+      setAddFriendModal(true);
+      }}>
       <Icon name={iconName} size={25} color='black' />
     </TouchableOpacity>
   );

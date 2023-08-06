@@ -1,7 +1,7 @@
 import React from 'react';
-import {Alert, Modal, StyleSheet, Text, Pressable, View, TextInput} from 'react-native';
+import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
-const AddFriendModal = ({ addFriendModal, setAddFriendModal, value, onChange }) => {
+const AddFriendModal = ({ addFriendModal, setAddFriendModal, showNameClicked, modalVisible, setModalVisible }) => {
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -14,24 +14,13 @@ const AddFriendModal = ({ addFriendModal, setAddFriendModal, value, onChange }) 
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text>Agregar amigo</Text>
-            <TextInput 
-            placeholder='Buscar por nombre o correo'
-            style={{
-              backgroundColor: '#F3F3F3',
-              borderRadius: 10,
-              padding: 10,
-              margin: 10,
-              width: 250
-            }}
-            onChangeText={onChange}
-            value={value}
-            />
+            <Text>¿Quieres agregar a {showNameClicked}?</Text>
             <View style={{flexDirection: 'row'}}>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={() => {
                   setAddFriendModal(!addFriendModal);
+                  setModalVisible(!modalVisible);
                   }}>
                 <Text style={styles.textStyle}>Enviar</Text>
               </Pressable>
@@ -39,6 +28,7 @@ const AddFriendModal = ({ addFriendModal, setAddFriendModal, value, onChange }) 
                 style={[styles.button, styles.buttonClose]}
                 onPress={() => {
                   setAddFriendModal(!addFriendModal);
+                  setModalVisible(!modalVisible);
                   }}>
                 <Text style={styles.textStyle}>Cancelar</Text>
               </Pressable>
