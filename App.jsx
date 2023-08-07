@@ -1,29 +1,30 @@
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { NavigationContainer } from '@react-navigation/native';
-import { AuthContext, AuthProvider } from './context/AuthContext';
 import { UserProvider } from './context/UserContext';
 import { AuthNavigator } from './stackNavigation/AuthNavigator';
-import UserAppNavigator from './stackNavigation/userAppNavigator';
+import { AuthContextWithReducer, AuthProviderWithReducer } from './context/AuthContextWithReducer';
+import UserAppNavigator from './stackNavigation/UserAppNavigator';
 import { useContext } from 'react';
 
 const Router = () => {
-	const { isAuth } = useContext(AuthContext);
+	const { authState } = useContext(AuthContextWithReducer);
 	return (
 		<NavigationContainer>
-			{isAuth ? <UserAppNavigator /> : <AuthNavigator />}
+			{authState.isLoggedIn ? <UserAppNavigator /> : <AuthNavigator />}
 		</NavigationContainer>
 	);
 };
 
 export default function App() {
-	return (
-		<Provider store={store}>
-			<AuthProvider>
-				<UserProvider>
-					<Router />
-				</UserProvider>
-			</AuthProvider>
-		</Provider>
-	);
+
+  return (
+    <Provider store={store}>
+      <AuthProviderWithReducer>
+          <UserProvider>
+            <Router />
+          </UserProvider>
+      </AuthProviderWithReducer>
+    </Provider>
+  );
 }

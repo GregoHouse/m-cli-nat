@@ -2,14 +2,14 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const TouchableIconShareApp = ({ iconName, onShare }) => {
+const TouchableIcon = ({ iconName }) => {
   return (
     <TouchableOpacity 
-    onPress={() => onShare()}
+    // onPress={} add code to switch page
     >
-      <Icon name={iconName} size={25} color='black' />
+      <Icon name={iconName} size={30} color='black' />
     </TouchableOpacity>
   );
 };
 
-export default TouchableIconShareApp;
+export default TouchableIcon;

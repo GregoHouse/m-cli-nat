@@ -3,10 +3,12 @@ import logo from "../assets/images/icono_logo_matching_-_oscuro.jpg";
 import { SecondInput } from "../components/SecondInput";
 import { useForm } from "react-hook-form";
 import { useNavigation } from "@react-navigation/native";
-import { ThirdInput } from "../components/ThirdInput";
-import { FourthInput } from "../components/FourthInput";
 import { ButtonCustom } from "../components/ButtonCustom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ThirdInput } from "../components/ThirdInput";
+import { CvvInput } from "../components/CvvInput";
+// import { PaymentIcon } from 'react-native-payment-icons'
+import { NameInput } from "../components/NameInput";
 
 
 
@@ -28,9 +30,46 @@ export function ReservaCancha() {
         navigation.navigate('Login');
     };
 
+    const [cardBrand, setCardBrand] = useState("");
+
+
+
+    // Función para identificar la marca de la tarjeta
+    const identifyCardBrand = (creditCardNumber) => {
+        // Visa: comienza con 4
+        if (/^4/.test(creditCardNumber)) {
+            setCardBrand("Visa");
+        }
+        // MasterCard: comienza con 5
+        else if (/^5/.test(creditCardNumber)) {
+            setCardBrand("MasterCard");
+        }
+        // American Express (Amex): comienza con 34 o 37
+        else if (/^3[47]/.test(creditCardNumber)) {
+            setCardBrand("Amex");
+        }
+        // Agrega más marcas de tarjetas según sea necesario
+
+        // Si no coincide con ninguna marca conocida, se puede establecer una marca predeterminada o dejarlo en blanco
+        else {
+            setCardBrand("mastercard");
+        }
+    };
+
+    const handleCreditCardChange = (creditCardNumber) => {
+        // Eliminar espacios o caracteres no numéricos del número de tarjeta
+        creditCardNumber = creditCardNumber.replace(/\s/g, "");
+        // Realizar la identificación de la marca de la tarjeta
+        identifyCardBrand(creditCardNumber);
+        // Puedes realizar otras validaciones o lógicas relacionadas con la tarjeta aquí
+    };
+
+
     const isFormValid = (isValid) => {
         setIsFormComplete(isValid);
     };
+
+    console.log(cardBrand)
 
 
     return (
@@ -73,8 +112,7 @@ export function ReservaCancha() {
                             Nombre completo
                         </Text>
                         <View>
-
-                            <SecondInput
+                            <NameInput
                                 control={control}
                                 name="name&sirName"
                             />
@@ -85,9 +123,11 @@ export function ReservaCancha() {
                             Número de Tarjeta
                         </Text>
                         <SecondInput
-                            keyboardType="numeric"
                             control={control}
-                            name="creditCard"
+                            name="creditCardNumber"
+                            maxLength={16}
+                            minLength={13}
+                            keyboardType="numeric"
                         />
                     </View>
                 </View>
@@ -100,7 +140,7 @@ export function ReservaCancha() {
                         </Text>
                         <View>
 
-                            <SecondInput
+                            <ThirdInput
                                 keyboardType="numeric"
                                 control={control}
                                 name="expirationDate"
@@ -114,26 +154,23 @@ export function ReservaCancha() {
                         CVV
                     </Text>
                     <View>
-                        <SecondInput
+                        <CvvInput
                             keyboardType="numeric"
                             control={control}
                             name="CVV"
-                            
+
                         />
                     </View>
                 </View>
             </View>
-                <View className="absolute top-[650] left-3 w-[370px] h-[45px]">
-                    <ButtonCustom
-                        onPress={goToLogin}
-                        text="Siguiente"
-                        style={styles.text}
-                        disabled={!isFormValid}
-
-                    />
-                </View>
-
-
+            <View className="absolute top-[650] left-3 w-[370px] h-[45px]">
+                <ButtonCustom
+                    onPress={handleSubmit(goToLogin)} // Llamar a handleSubmit para validar el formulario antes de continuar
+                    text="Siguiente"
+                    style={styles.text}
+                    disabled={!isFormComplete} // Utilizar isFormComplete en lugar de isFormValid
+                />
+            </View>
         </View>
     )
 
