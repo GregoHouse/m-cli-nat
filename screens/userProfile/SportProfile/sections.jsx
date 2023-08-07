@@ -132,12 +132,17 @@ export const PointsBox = () => {
 	);
 };
 
-export const PreferencesSection = () => {
+export const PreferencesSection = ({ navigator }) => {
 	return (
 		<View className="mt-4">
 			<View className="flex flex-row justify-between mb-2">
 				<Text className="font-semibold">Mis Preferencias</Text>
-				<Text className="text-background_login font-semibold">Editar</Text>
+				<TouchableOpacity
+					onPress={() => {
+						navigator('sportEditPreferences');
+					}}>
+					<Text className="text-background_login font-semibold">Editar</Text>
+				</TouchableOpacity>
 			</View>
 			<View className="flex flex-col gap-2">
 				{preferences.map(({ keyValue, value, icon }, i) => {
