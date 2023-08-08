@@ -3,6 +3,7 @@ import { Image, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { styles } from '../../theme/appTheme';
+import { friendsMock } from '../../data/friendsMocks';
 
 const FriendCard = ({ 
   name, 
@@ -30,7 +31,13 @@ const FriendCard = ({
       >
         <TouchableOpacity
         onPress={() => {
-          showFriendProfile(`${name} ${last} ${info}`);
+          showFriendProfile({
+            name: name,
+            lastname: last,
+            email: info,
+            avatar,
+            friends: friendsMock
+          }); // Acá a futuro va el objeto con todos los datos del friend seleccionado.
           navigation.navigate('FriendProfileScreen');
           }}
         style={{width: '100%', flexDirection: 'row'}}
