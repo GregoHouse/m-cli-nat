@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import ProfileDescription from './Description.jsx';
 import FriendsOfMyFriend from './FriendsOfMyFriend.jsx';
 

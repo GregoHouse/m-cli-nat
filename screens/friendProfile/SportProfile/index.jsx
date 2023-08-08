@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { ActivitySport } from './constants';
-import { MyActivityBox, PointsBox, PreferencesSection } from './sections';
+import { MyActivityBox, PreferencesSection } from './sections';
 
 export default function SportProfile() {
 	return (

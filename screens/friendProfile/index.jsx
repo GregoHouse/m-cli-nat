@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import {
-	ScrollView,
 	StyleSheet,
 	Text,
 	TouchableOpacity,

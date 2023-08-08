@@ -3,18 +3,17 @@ import { FlatList, View } from 'react-native';
 import { styles } from '../../../theme/appTheme';
 import FriendCard from '../../../components/FriendsOfMyFriendsComponents/FriendCard';
 import FriendsHeader from '../../../components/FriendsOfMyFriendsComponents/FriendsHeader';
-import FriendActionModal from '../../../components/FriendsOfMyFriendsComponents/FriendActionModal';
 import AddFriendModal from '../../../components/FriendsOfMyFriendsComponents/AddFriendModal';
 import { AuthContextWithReducer } from '../../../context/AuthContextWithReducer';
 
-const FriendsOfMyFriend = ({ navigation }) => {
+const FriendsOfMyFriend = () => {
   const [text, onChangeText] = useState('');
   const [data, setData] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalFriendName, setModalFriendName] = useState(undefined);
   const [addFriendModal, setAddFriendModal] = useState(false);
   const [addFriendText, setAddFriendText] = useState('');
-  const { authState, authState: { profileFriendSelected: { friends } }, showFriendProfile } = useContext(AuthContextWithReducer);
+  const { authState, authState: { profileFriendSelected: { friends } } } = useContext(AuthContextWithReducer);
   
   const searchHandler = (text) => {
     return data.filter(friend => friend.name.first.toLowerCase().includes(text.toLowerCase()) || friend.name.last.toLowerCase().includes(text.toLowerCase()));
