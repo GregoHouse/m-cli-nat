@@ -1,16 +1,16 @@
-import { Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Text } from 'react-native';
 import FontAw5Icons from 'react-native-vector-icons/FontAwesome5';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 import FeatherIcons from 'react-native-vector-icons/Feather';
-import UserProfile from '../screens/userProfile';
+import UserNavigator from './userNavigator';
 
 const UserAppTab = createBottomTabNavigator();
 
 const SCREEN_NAMES = {
-	USER_PROFILE: 'USER_PROFILE',
-	USER_HOME: 'USER_HOME',
-	USER_FAQS: 'USER_FAQS',
+	USER_PROFILE: 'USER_PROFILE_TAB',
+	USER_HOME: 'USER_HOME_TAB',
+	USER_FAQS: 'USER_FAQS_TAB',
 };
 
 const HomeScreen = () => {
@@ -21,6 +21,7 @@ const FaqsScreen = () => {
 	return <Text>FAQS</Text>;
 };
 
+// This component should include only components that return: Screen || StackNavigator
 export default function UserAppNavigator() {
 	return (
 		<UserAppTab.Navigator
@@ -47,7 +48,7 @@ export default function UserAppNavigator() {
 			<UserAppTab.Screen component={HomeScreen} name={SCREEN_NAMES.USER_HOME} />
 			<UserAppTab.Screen component={FaqsScreen} name={SCREEN_NAMES.USER_FAQS} />
 			<UserAppTab.Screen
-				component={UserProfile}
+				component={UserNavigator}
 				name={SCREEN_NAMES.USER_PROFILE}
 			/>
 		</UserAppTab.Navigator>
