@@ -70,7 +70,7 @@ export function QuestionOne() {
                     </View>
                 </View>
                 <View className="absolute top-[198px] left-[350]">
-                    <Text className="text-white_text text-xs">1/6</Text>
+                    <Text className="text-white_text text-xs">1/5</Text>
                 </View>
             </View>
             <View className="absolute top-[250]">

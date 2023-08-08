@@ -4,7 +4,7 @@ import DatePicker from 'react-native-modern-datepicker';
 import { useState } from "react";
 import Icon from 'react-native-vector-icons/Fontisto';
 import { ButtonCustom } from "../components/ButtonCustom";
-import {useNavigation} from "@react-navigation/native"
+import { useNavigation } from "@react-navigation/native"
 
 const styles = StyleSheet.create({
     text: {
@@ -17,14 +17,12 @@ const styles = StyleSheet.create({
 
 
 export function QuestionTwo() {
-    const navigation = useNavigation();
     const [date, setDate] = useState("")
     const [open, setOpen] = useState(false)
     const hoy = new Date().toISOString().split("T").shift()
+    const navigation = useNavigation();
+    const goToQuestionThree = () => navigation.navigate('QuestionThree');
 
-    function goToScreenQuestionThree(){
-        navigation.navigate("QuestionThree")
-    }
 
     return (
         <View className="h-full bg-background_login">
@@ -51,7 +49,7 @@ export function QuestionTwo() {
                     </View>
                 </View>
                 <View className="absolute top-[198px] left-[350]">
-                    <Text className="text-white_text text-xs">2/6</Text>
+                    <Text className="text-white_text text-xs">2/5</Text>
                 </View>
             </View>
             <View className="absolute top-[250]">
@@ -122,9 +120,10 @@ export function QuestionTwo() {
                     {
                         date ?
                             <ButtonCustom
+                                onPress={goToQuestionThree}
                                 text="Siguiente"
                                 style={styles.text}
-                                onPress={goToScreenQuestionThree}
+
                             /> :
                             <ButtonCustom
                                 text="Siguiente"

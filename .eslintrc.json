@@ -17,10 +17,6 @@
         "react"
     ],
     "rules": {
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
         "quotes": [
             "warn",
             "single"
